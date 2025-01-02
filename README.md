@@ -66,10 +66,7 @@ pip install torch-2.1.1-cp310-cp310-linux_x86_64.whl
 ### Build Pytorch for gfx803 (patched vesrion)
 - First install Dependencies
 <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
-sudo apt install build-essential cmake python3-dev python3-numpy \
-     ninja-build libomp-dev libcurl4-openssl-dev \
-     libgflags-dev libgoogle-glog-dev \
-     libiomp-dev libssl-dev libyaml-cpp-dev
+sudo apt install build-essential cmake python3-dev python3-numpy ninja-build libomp-dev libcurl4-openssl-dev libgflags-dev libgoogle-glog-dev libiomp-dev libssl-dev libyaml-cpp-dev
 </pre>
 - Now you can start the build
 <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
