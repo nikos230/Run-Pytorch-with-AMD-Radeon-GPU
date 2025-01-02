@@ -6,31 +6,25 @@ With this guide you will be able to run Pytorch 2.1.1 with an Radeon GPU, it has
 ### Requirements
 - Ubuntu 22.04 LTS
 - AMD Radeon GPU in gfx803 family (rx460, rx470, rx480, rx550, rx560, rx560, rx570, rx580)
-  
-### Quick Start Guide
-- Install ubuntu 22.04
-- Install ROCm 5.4.0 or 5.4.3
-- Install pre-build version or build Pytorch 2.1.1
-- Done!
 
-### Before Setup Requirements
-- Download Pytorch 2.1.1 wheel from this [link](https://drive.google.com/file/d/1Tkyqe8VxUPkpf_jLZRzJphKNlW5Cqixi/view?usp=sharing) or build it yourself (see below)
-- Download rocblas_2.46.0.50401-84.20.04_amd64.deb [from this link](https://github.com/xuhuisheng/rocm-gfx803/releases/tag/rocm541)
+### Download Required Files
+- Download [Pytorch 2.1.1](https://drive.google.com/file/d/1Tkyqe8VxUPkpf_jLZRzJphKNlW5Cqixi/view?usp=sharing) or build it yourself (see below)
+- Download [rocblas_2.46.0.50401-84.20.04_amd64.deb](https://github.com/xuhuisheng/rocm-gfx803/releases/tag/rocm541)
 
 
-### Guide to Setup ROCm and Pytorch
----
-Start with a freash setup of ubuntu 22.04, then you need to install AMD drivers like ROCm. The version needed is ROCm 5.4.0, or 5.4.3 choose one of theese.
+## Guide to Setup ROCm and Pytorch
+
+Start with a fresh setup of ubuntu 22.04, then you need to install AMD drivers like ROCm. The version needed is ROCm 5.4.0, or 5.4.3 choose one of theese.
 - Open a terminal and type
 <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
 sudo su
 sudo echo ROC_ENABLE_PRE_VEGA=1 >> /etc/environment
 sudo echo HSA_OVERRIDE_GFX_VERSION=8.0.3 >> /etc/environment
 </pre>
-Now reboot your system
-<br />
+Reboot your system <br /><br />
 
-- Then you can start installing ROCm
+
+- Open terminal and now you can start installing ROCm (for ROCm 5.4.0)
 
 <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
 cd Downloads
@@ -40,11 +34,25 @@ sudo amdgpu-install -y --no-dkms --usecase=rocm,hiplibsdk,mlsdk
 sudo usermod -aG video $LOGNAME
 sudo usermod -aG render $LOGNAME
 </pre>
-Reboot and check if ROCm is installed correctly
+
+- or Alternative install ROCm 5.4.3
+<pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
+cd Downloads
+wget https://repo.radeon.com/amdgpu-install/5.4.3/ubuntu/jammy/amdgpu-install_5.4.50403-1_all.deb
+sudo apt install ./amdgpu-install_5.4.50403-1_all.deb
+sudo amdgpu-install -y --no-dkms --usecase=rocm,hiplibsdk,mlsdk
+sudo usermod -aG video $LOGNAME
+sudo usermod -aG render $LOGNAME
+</pre>
+Reboot your system<br /><br />
+
+- Open terminal and check if ROCm is installed correctly
+  
 <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
 rocminfo
 clinfo
 </pre>  
+<br />
 
  - Then install libopenmpi3 andlibstdc++-11-dev and rocblas patched version for gfx803
 
@@ -53,14 +61,15 @@ sudo apt install libopenmpi3 libstdc++-11-dev
 sudo apt-get install libopenblas-dev
 cd Downloads
 sudo apt install ./rocblas_2.46.0.50401-84.20.04_amd64.deb 
-</pre>  
+</pre><br /><br />  
 
-Then you need to install Pytorch, you can use the pre-build wheels from this repo, or you can build it yourself but it will take some time. You can not install Pytorch with ROCm support directly from the Pytorch repo because it will not work for gfx803 GPUs
+- Now you need to install Pytorch, you can use the pre-build wheels from this repo, or you can build it yourself but it will take some time. You can not install Pytorch with ROCm support directly from the Pytorch repo because it will not work for gfx803 GPUs
+  
 <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
-
+cd Downloads
 sudo apt install pip
 pip install torch-2.1.1-cp310-cp310-linux_x86_64.whl
-</pre>  
+</pre><br /><br />  
 
 
 ### Build Pytorch for gfx803 (patched vesrion)
@@ -98,8 +107,10 @@ Call Stack (most recent call first):
   cmake/Dependencies.cmake:1268 (include)
   CMakeLists.txt:722 (include)
 </pre>
+<pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
 sudo ln -s /opt/rocm-5.4.1/lib/librocblas.so.0 /opt/rocm-5.4.0/lib/librocblas.so.0
 sudo ln -s /opt/rocm-5.4.1/lib/librocblas.so.0.1.50401 /opt/rocm-5.4.0/lib/librocblas.so.0.1.50400
+</pre>
 
 ## References
 [https://github.com/tsl0922/pytorch-gfx803](https://github.com/tsl0922/pytorch-gfx803) <br />
