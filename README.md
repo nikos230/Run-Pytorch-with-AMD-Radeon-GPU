@@ -69,9 +69,9 @@ sudo apt install ./rocblas_2.46.0.50401-84.20.04_amd64.deb
 cd Downloads
 sudo apt install pip
 pip install torch-2.1.1-cp310-cp310-linux_x86_64.whl
-</pre><br /><br />
+</pre>
 
-Done!, you can check if Pytorch works correctly with the provided test script.
+**Done!** you can check if Pytorch works correctly with the provided test script.<br /><br />
 
 
 ### Build Pytorch for gfx803 (patched vesrion)
