@@ -10,7 +10,7 @@ With this guide you will be able to run Pytorch 2.1.1 with an Radeon GPU, it has
 ### Quick Start Guide
 - Install ubuntu 22.04
 - Install ROCm 5.4.0 or 5.4.3
-- Install pre-build version or Pytorch 2.1.1
+- Install pre-build version or Pytorch 2.1.1, Download pre-build Pytorch from [here](https://drive.google.com/file/d/1Tkyqe8VxUPkpf_jLZRzJphKNlW5Cqixi/view?usp=sharing)
 - Done!
 
 ### Before Setup Requirements
