@@ -80,6 +80,24 @@ USE_ROCM=1 USE_NINJA=1 python3 setup.py bdist_wheel
 pip3 install dist/torch-2.1.1-cp310-cp310-linux_x86_64.whl
 </pre>
 if you get error from rocblas library and you are using ROCm 5.4.0 create the follwing symbolc link
+<pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
+CMake Error at /opt/rocm-5.4.0/lib/cmake/rocblas/rocblas-targets.cmake:79 (message):
+  The imported target "roc::rocblas" references the file
+
+     "/opt/rocm-5.4.0/lib/librocblas.so.0.1.50400"
+  but this file does not exist.  Possible reasons include:
+  * The file was deleted, renamed, or moved to another location.
+  * An install or uninstall procedure did not complete successfully.
+  * The installation package was faulty and contained
+     "/opt/rocm-5.4.0/lib/cmake/rocblas/rocblas-targets.cmake"
+  but not all the files it references.
+Call Stack (most recent call first):
+  /opt/rocm/lib/cmake/rocblas/rocblas-config.cmake:92 (include)
+  cmake/public/LoadHIP.cmake:161 (find_package)
+  cmake/public/LoadHIP.cmake:291 (find_package_and_print_version)
+  cmake/Dependencies.cmake:1268 (include)
+  CMakeLists.txt:722 (include)
+</pre>
 sudo ln -s /opt/rocm-5.4.1/lib/librocblas.so.0 /opt/rocm-5.4.0/lib/librocblas.so.0
 sudo ln -s /opt/rocm-5.4.1/lib/librocblas.so.0.1.50401 /opt/rocm-5.4.0/lib/librocblas.so.0.1.50400
 
