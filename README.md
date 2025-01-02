@@ -79,7 +79,9 @@ python3 tools/amd_build/build_amd.py
 USE_ROCM=1 USE_NINJA=1 python3 setup.py bdist_wheel
 pip3 install dist/torch-2.1.1-cp310-cp310-linux_x86_64.whl
 </pre>
-
+if you get error from rocblas library and you are using ROCm 5.4.0 create the follwing symbolc link
+sudo ln -s /opt/rocm-5.4.1/lib/librocblas.so.0 /opt/rocm-5.4.0/lib/librocblas.so.0
+sudo ln -s /opt/rocm-5.4.1/lib/librocblas.so.0.1.50401 /opt/rocm-5.4.0/lib/librocblas.so.0.1.50400
 
 ## References
 [https://github.com/tsl0922/pytorch-gfx803](https://github.com/tsl0922/pytorch-gfx803) <br />
