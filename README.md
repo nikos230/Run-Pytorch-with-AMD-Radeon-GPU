@@ -81,3 +81,8 @@ python3 tools/amd_build/build_amd.py
 USE_ROCM=1 USE_NINJA=1 python3 setup.py bdist_wheel
 pip3 install dist/torch-2.1.1-cp310-cp310-linux_x86_64.whl
 </pre>
+
+
+## References
+[https://github.com/tsl0922/pytorch-gfx803](https://github.com/tsl0922/pytorch-gfx803) <br />
+[https://github.com/xuhuisheng/rocm-gfx803](https://github.com/xuhuisheng/rocm-gfx803)
