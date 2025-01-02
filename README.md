@@ -50,6 +50,7 @@ clinfo
 
 <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
 sudo apt install libopenmpi3 libstdc++-11-dev
+sudo apt-get install libopenblas-dev
 cd Downloads
 sudo apt install ./rocblas_2.46.0.50401-84.20.04_amd64.deb 
 </pre>  
