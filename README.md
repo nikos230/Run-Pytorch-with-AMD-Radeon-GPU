@@ -72,6 +72,12 @@ pip install torch-2.1.1-cp310-cp310-linux_x86_64.whl
 </pre>
 
 **Done!** you can check if Pytorch works correctly with the provided test script.<br /><br />
+<pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
+pip install matplotlib
+cd Downloads
+python3 check_pytorch.py
+</pre>  
+<br />
 
 
 ### Build Pytorch for gfx803 (patched vesrion)
