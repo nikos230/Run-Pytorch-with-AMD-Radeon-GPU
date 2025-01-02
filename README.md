@@ -61,10 +61,10 @@ sudo apt install libopenmpi3 libstdc++-11-dev
 sudo apt-get install libopenblas-dev
 cd Downloads
 sudo apt install ./rocblas_2.46.0.50401-84.20.04_amd64.deb 
-</pre><br /><br />  
+</pre><br /> 
 
 - Now you need to install Pytorch, you can use the pre-build wheels from this repo, or you can build it yourself but it will take some time. You can not install Pytorch with ROCm support directly from the Pytorch repo because it will not work for gfx803 GPUs
-  
+
 <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 8px;">
 cd Downloads
 sudo apt install pip
